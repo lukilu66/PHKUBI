@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web_deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web_deployment
+  template:
+    metadata:
+      labels:
+        app: web_deployment
+    spec:
+      containers:
+      - name: web_deployment
+        image: php:7.4-apache
+        ports:
+        -containerPort: 80
